@@ -18,4 +18,10 @@ interface LessonDao {
 
     @Query("SELECT * FROM lesson_table")
     fun getAllLessons(): Flow<List<Lesson>>
+
+    @Query("SELECT COUNT(DISTINCT unit) FROM lesson_table")
+    fun getUnitSize():Int
+
+    @Query("SELECT DISTINCT unit FROM lesson_table")
+    fun getAllUnit():List<Int>
 }

@@ -40,6 +40,9 @@ android {
 
 
 dependencies {
+    implementation(libs.android.shapeloadingview)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.kotlinx.coroutines.android)
     implementation(libs.utilcodex)
     implementation(libs.kotlin.stdlib)
     //room

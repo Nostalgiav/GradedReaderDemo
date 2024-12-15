@@ -2,6 +2,7 @@ package com.demo.gradedreader.lessonroom
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "lesson_table")
 data class Lesson(
@@ -16,4 +17,4 @@ data class Lesson(
     val translation: String,   // 正文翻译
     val signature: String,    //署名
     val newWords: String,      // 生词及解释（JSON 字符串）
-)
+): Serializable

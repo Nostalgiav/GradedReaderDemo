@@ -17,10 +17,18 @@ interface WordDao {
     fun getAllWords(): Flow<List<Word>>
 
     // 根据等级获取单词
-    @Query("SELECT * FROM word_table WHERE level = :level")
-    fun getWordsByLevel(level: Int): Flow<List<Word>>
+    @Query("SELECT id, word, level FROM word_table WHERE level <= :level")
+    fun getWordsByLevel(level: Int): List<Word>
 
     // 删除所有单词
     @Query("DELETE FROM word_table")
     suspend fun deleteAll()
+
+    // 获取单词的最高等级
+    @Query("SELECT MAX(level) FROM word_table")
+    suspend fun getMaxLevel(): Int?
+
+    //获取所有等级
+    @Query("SELECT DISTINCT level FROM word_table")
+    fun getAllLevel():List<Int>
 }
